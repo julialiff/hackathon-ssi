@@ -5261,3 +5261,615 @@ Completed 200 OK in 65ms (Views: 63.0ms | ActiveRecord: 0.0ms)
 
 >>>>>>> layout
 >>>>>>> d268622e29d2bb20f356fd85e891f76f5095eb4e
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT pg_try_advisory_lock(332079253347177105);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to AddAdminToUser (20170827031317)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (16.0ms)[0m  [1m[35mALTER TABLE "users" ADD "admin" boolean[0m
+  [1m[35mSQL (1.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170827031317"]]
+  [1m[35m (35.1ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateActivities (20170827034822)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (82.5ms)[0m  [1m[35mCREATE TABLE "activities" ("id" serial primary key, "created_user_id" integer, "assigned_user_id" integer, "title" character varying, "description" character varying, "done" boolean, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(332079253347177105)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(332079253347177105);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateActivities (20170827034822)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (129.2ms)[0m  [1m[35mCREATE TABLE "activities" ("id" serial primary key, "created_user_id" integer, "assigned_user_id" integer, "title" character varying, "description" character varying, "done" boolean, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170827034822"]]
+  [1m[35m (18.8ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateSubactivities (20170827043605)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (89.9ms)[0m  [1m[35mCREATE TABLE "subactivities" ("id" serial primary key, "activity_id" integer, "title" character varying, "description" character varying, "image" character varying, "done" boolean, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_ae0917dc46"
+FOREIGN KEY ("activity_id")
+  REFERENCES "activities" ("id")
+)[0m
+  [1m[35m (30.7ms)[0m  [1m[35mCREATE  INDEX  "index_subactivities_on_activity_id" ON "subactivities"  ("activity_id")[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170827043605"]]
+  [1m[35m (18.6ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateNotifications (20170827062318)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (34.2ms)[0m  [1m[35mCREATE TABLE "notifications" ("id" serial primary key, "created_user_id" integer, "assigned_user_id" integer, "read" boolean, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170827062318"]]
+  [1m[35m (62.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(332079253347177105)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Started GET "/users/" for 127.0.0.1 at 2017-08-27 03:40:56 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered users/index.html.erb within layouts/application (13.4ms)
+Started GET "/users/" for 127.0.0.1 at 2017-08-27 03:40:58 -0300
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (2.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered users/index.html.erb within layouts/application (5.6ms)
+  Rendered layouts/_navbar.html.erb (7.2ms)
+Completed 200 OK in 5001ms (Views: 4985.3ms | ActiveRecord: 2.3ms)
+
+
+  Rendered layouts/_navbar.html.erb (2.2ms)
+Completed 200 OK in 2603ms (Views: 2597.4ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/users/" for 127.0.0.1 at 2017-08-27 03:41:05 -0300
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered users/index.html.erb within layouts/application (3.0ms)
+  Rendered layouts/_navbar.html.erb (2.8ms)
+Completed 200 OK in 74ms (Views: 72.0ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-08-27 03:41:10 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.2ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (95.0ms)
+  Rendered layouts/_navbar.html.erb (2.2ms)
+Completed 200 OK in 165ms (Views: 139.6ms | ActiveRecord: 3.6ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-08-27 03:41:41 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (2.6ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (7.8ms)
+  Rendered layouts/_navbar.html.erb (2.4ms)
+Completed 200 OK in 101ms (Views: 98.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-08-27 03:42:05 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (2.8ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (10.3ms)
+  Rendered layouts/_navbar.html.erb (2.2ms)
+Completed 200 OK in 71ms (Views: 68.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-08-27 03:42:34 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.2ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (5.5ms)
+  Rendered layouts/_navbar.html.erb (2.8ms)
+Completed 200 OK in 63ms (Views: 59.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-08-27 03:43:25 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.1ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (4.6ms)
+  Rendered layouts/_navbar.html.erb (2.3ms)
+Completed 200 OK in 61ms (Views: 58.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2017-08-27 03:43:32 -0300
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (35.9ms)
+  Rendered users/_form.html.erb (4.4ms)
+  Rendered users/new.html.erb within layouts/application (43.3ms)
+  Rendered layouts/_navbar.html.erb (2.2ms)
+Completed 200 OK in 103ms (Views: 100.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2017-08-27 03:43:36 -0300
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (7.7ms)
+  Rendered users/_form.html.erb (5.1ms)
+  Rendered users/new.html.erb within layouts/application (15.8ms)
+  Rendered layouts/_navbar.html.erb (2.2ms)
+Completed 200 OK in 65ms (Views: 63.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2017-08-27 03:44:12 -0300
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (6.7ms)
+  Rendered users/new.html.erb within layouts/application (9.1ms)
+  Rendered layouts/_navbar.html.erb (2.3ms)
+Completed 200 OK in 61ms (Views: 59.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2017-08-27 03:46:13 -0300
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (56.3ms)
+  Rendered users/new.html.erb within layouts/application (57.9ms)
+  Rendered layouts/_navbar.html.erb (2.5ms)
+Completed 200 OK in 112ms (Views: 110.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2017-08-27 03:47:21 -0300
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (3.3ms)
+  Rendered users/new.html.erb within layouts/application (4.9ms)
+  Rendered layouts/_navbar.html.erb (44.8ms)
+Completed 200 OK in 541ms (Views: 467.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2017-08-27 03:48:43 -0300
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (5.9ms)
+  Rendered users/new.html.erb within layouts/application (7.9ms)
+  Rendered layouts/_navbar.html.erb (2.5ms)
+Completed 200 OK in 68ms (Views: 66.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2017-08-27 03:49:51 -0300
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (5.2ms)
+  Rendered users/new.html.erb within layouts/application (7.3ms)
+  Rendered layouts/_navbar.html.erb (3.5ms)
+Completed 200 OK in 81ms (Views: 79.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2017-08-27 03:50:09 -0300
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (1.3ms)
+  Rendered users/new.html.erb within layouts/application (2.4ms)
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/home/julia/hackathon-ssi/app/views/users/_form.html.erb:35: syntax error, unexpected tLABEL, expecting '='
+...uffer.append=( f.submit, class: 'btn btn-primary' );@output_...
+...                               ^):
+  
+app/views/users/_form.html.erb:35: syntax error, unexpected tLABEL, expecting '='
+app/views/users/new.html.erb:6:in `_app_views_users_new_html_erb___892465190613573255_70139156106980'
+  Rendering /home/julia/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /home/julia/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.5/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/julia/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.5/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (6.4ms)
+  Rendering /home/julia/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/julia/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.6ms)
+  Rendering /home/julia/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/julia/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /home/julia/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (45.6ms)
+Started GET "/users/new" for 127.0.0.1 at 2017-08-27 03:50:42 -0300
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (3.2ms)
+  Rendered users/new.html.erb within layouts/application (4.6ms)
+  Rendered layouts/_navbar.html.erb (4.0ms)
+Completed 200 OK in 62ms (Views: 59.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2017-08-27 03:55:23 -0300
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (1.6ms)
+  Rendered users/new.html.erb within layouts/application (3.0ms)
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/home/julia/hackathon-ssi/app/views/users/_form.html.erb:1: syntax error, unexpected ':', expecting keyword_end
+...utput_buffer.append=  form_for: user, @user, :url => user_pa...
+...                               ^
+/home/julia/hackathon-ssi/app/views/users/_form.html.erb:1: syntax error, unexpected =>, expecting &. or :: or '[' or '.'
+... form_for: user, @user, :url => user_path, :html => { :multi...
+...                               ^
+/home/julia/hackathon-ssi/app/views/users/_form.html.erb:1: syntax error, unexpected =>, expecting &. or :: or '[' or '.'
+...er, :url => user_path, :html => { :multipart => true } do |f...
+...                               ^
+/home/julia/hackathon-ssi/app/views/users/_form.html.erb:1: syntax error, unexpected keyword_do_block, expecting keyword_end
+...ml => { :multipart => true } do |f| @output_buffer.safe_appe...
+...                               ^
+/home/julia/hackathon-ssi/app/views/users/_form.html.erb:39: syntax error, unexpected keyword_ensure, expecting end-of-input):
+  
+app/views/users/_form.html.erb:1: syntax error, unexpected ':', expecting keyword_end
+app/views/users/_form.html.erb:1: syntax error, unexpected =>, expecting &. or :: or '[' or '.'
+app/views/users/_form.html.erb:1: syntax error, unexpected =>, expecting &. or :: or '[' or '.'
+app/views/users/_form.html.erb:1: syntax error, unexpected keyword_do_block, expecting keyword_end
+app/views/users/_form.html.erb:39: syntax error, unexpected keyword_ensure, expecting end-of-input
+app/views/users/new.html.erb:6:in `_app_views_users_new_html_erb___892465190613573255_70139139302340'
+  Rendering /home/julia/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /home/julia/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.5/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/julia/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.5/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (6.3ms)
+  Rendering /home/julia/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/julia/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.5ms)
+  Rendering /home/julia/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/julia/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /home/julia/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (32.6ms)
+Started GET "/users/new" for 127.0.0.1 at 2017-08-27 03:55:39 -0300
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (2.6ms)
+  Rendered users/new.html.erb within layouts/application (4.0ms)
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"show", :controller=>"users"} missing required keys: [:id]):
+    1: <%= form_for :user, @user, :url => user_path, :html => { :multipart => true } do |f| %>
+    2:   <% if user.errors.any? %>
+    3:     <div id="error_explanation">
+    4:       <h2><%= pluralize(user.errors.count, "error") %> impedindo este usuário de ser salvo:</h2>
+  
+app/views/users/_form.html.erb:1:in `_app_views_users__form_html_erb__475008601639467835_70139153740780'
+app/views/users/new.html.erb:6:in `_app_views_users_new_html_erb___892465190613573255_70139153820000'
+  Rendering /home/julia/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.5/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /home/julia/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.5/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/julia/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.5/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (6.9ms)
+  Rendering /home/julia/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/julia/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.9ms)
+  Rendering /home/julia/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/julia/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.5ms)
+  Rendered /home/julia/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.5/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (43.1ms)
+Started GET "/users/new" for 127.0.0.1 at 2017-08-27 03:55:55 -0300
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (2.5ms)
+  Rendered users/new.html.erb within layouts/application (3.7ms)
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"show", :controller=>"users"} missing required keys: [:id]):
+    1: <%= form_for :user, :url => user_path, :html => { :multipart => true } do |f| %>
+    2:   <% if user.errors.any? %>
+    3:     <div id="error_explanation">
+    4:       <h2><%= pluralize(user.errors.count, "error") %> impedindo este usuário de ser salvo:</h2>
+  
+app/views/users/_form.html.erb:1:in `_app_views_users__form_html_erb__475008601639467835_70139142812140'
+app/views/users/new.html.erb:6:in `_app_views_users_new_html_erb___892465190613573255_70139142986000'
+  Rendering /home/julia/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.5/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /home/julia/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.5/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/julia/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.5/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (6.2ms)
+  Rendering /home/julia/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/julia/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.9ms)
+  Rendering /home/julia/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/julia/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /home/julia/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.5/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (34.1ms)
+Started GET "/users/new" for 127.0.0.1 at 2017-08-27 03:56:04 -0300
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (330.6ms)
+  Rendered users/new.html.erb within layouts/application (333.9ms)
+Completed 500 Internal Server Error in 341ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `form' for #<#<Class:0x005648a088d6e8>:0x007f9516fd6710>
+Did you mean?  format
+               formats
+               form_tag
+               form_for
+               formats=
+               fork):
+    18: 
+    19:   <div class="field">
+    20:     <%= f.label :photo %>
+    21:     <%= form.file_field :photo, class: 'form-control' %>
+    22:   </div>
+    23: 
+    24:   <div class="field">
+  
+app/views/users/_form.html.erb:21:in `block in _app_views_users__form_html_erb__475008601639467835_70139156253640'
+app/views/users/_form.html.erb:1:in `_app_views_users__form_html_erb__475008601639467835_70139156253640'
+app/views/users/new.html.erb:6:in `_app_views_users_new_html_erb___892465190613573255_70139156282040'
+  Rendering /home/julia/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.5/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /home/julia/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.5/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/julia/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.5/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (7.8ms)
+  Rendering /home/julia/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/julia/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.3ms)
+  Rendering /home/julia/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/julia/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /home/julia/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.5/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (36.7ms)
+Started GET "/users/new" for 127.0.0.1 at 2017-08-27 03:56:14 -0300
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (45.7ms)
+  Rendered users/new.html.erb within layouts/application (47.0ms)
+  Rendered layouts/_navbar.html.erb (4.9ms)
+Completed 200 OK in 124ms (Views: 121.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2017-08-27 03:56:48 -0300
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (15.5ms)
+  Rendered users/new.html.erb within layouts/application (152.6ms)
+  Rendered layouts/_navbar.html.erb (18.9ms)
+Completed 200 OK in 2613ms (Views: 2105.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/new" for 127.0.0.1 at 2017-08-27 04:00:49 -0300
+  
+ActionController::RoutingError (No route matches [POST] "/users/new"):
+  
+actionpack (5.0.5) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.5) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.5) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.5) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.5) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.5) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.5) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.5) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.0.5) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.5) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.5) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.5) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.5) lib/rails/engine.rb:522:in `call'
+puma (3.10.0) lib/puma/configuration.rb:225:in `call'
+puma (3.10.0) lib/puma/server.rb:605:in `handle_request'
+puma (3.10.0) lib/puma/server.rb:437:in `process_client'
+puma (3.10.0) lib/puma/server.rb:301:in `block in run'
+puma (3.10.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+  Rendering /home/julia/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.5/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendering /home/julia/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/julia/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.3ms)
+  Rendered collection of /home/julia/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.5/lib/action_dispatch/middleware/templates/routes/_route.html.erb [48 times] (149.9ms)
+  Rendered /home/julia/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.5/lib/action_dispatch/middleware/templates/routes/_table.html.erb (18.0ms)
+  Rendering /home/julia/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/julia/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (3.2ms)
+  Rendered /home/julia/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.5/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (231.6ms)
+Started GET "/users/new" for 127.0.0.1 at 2017-08-27 04:02:49 -0300
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (3.2ms)
+  Rendered users/new.html.erb within layouts/application (4.9ms)
+Completed 500 Internal Server Error in 88ms (ActiveRecord: 52.8ms)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"show", :controller=>"users"} missing required keys: [:id]):
+    1: <%= form_for :user, user_path, :html => { :multipart => true } do |f| %>
+    2:   <% if user.errors.any? %>
+    3:     <div id="error_explanation">
+    4:       <h2><%= pluralize(user.errors.count, "error") %> impedindo este usuário de ser salvo:</h2>
+  
+app/views/users/_form.html.erb:1:in `_app_views_users__form_html_erb__475008601639467835_70139153910800'
+app/views/users/new.html.erb:6:in `_app_views_users_new_html_erb___892465190613573255_70139158459220'
+  Rendering /home/julia/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.5/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /home/julia/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.5/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/julia/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.5/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (6.5ms)
+  Rendering /home/julia/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/julia/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.8ms)
+  Rendering /home/julia/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/julia/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /home/julia/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.5/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (43.9ms)
+Started GET "/users/new" for 127.0.0.1 at 2017-08-27 04:03:00 -0300
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (4.5ms)
+  Rendered users/new.html.erb within layouts/application (5.9ms)
+  Rendered layouts/_navbar.html.erb (2.8ms)
+Completed 200 OK in 80ms (Views: 77.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/new" for 127.0.0.1 at 2017-08-27 04:03:12 -0300
+  
+ActionController::RoutingError (No route matches [POST] "/users/new"):
+  
+actionpack (5.0.5) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.5) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.5) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.5) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.5) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.5) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.5) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.5) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.0.5) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.5) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.5) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.5) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.5) lib/rails/engine.rb:522:in `call'
+puma (3.10.0) lib/puma/configuration.rb:225:in `call'
+puma (3.10.0) lib/puma/server.rb:605:in `handle_request'
+puma (3.10.0) lib/puma/server.rb:437:in `process_client'
+puma (3.10.0) lib/puma/server.rb:301:in `block in run'
+puma (3.10.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+  Rendering /home/julia/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.5/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendering /home/julia/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/julia/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.5ms)
+  Rendered collection of /home/julia/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.5/lib/action_dispatch/middleware/templates/routes/_route.html.erb [48 times] (18.5ms)
+  Rendered /home/julia/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.5/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.7ms)
+  Rendering /home/julia/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/julia/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.8ms)
+  Rendered /home/julia/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.5/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (55.2ms)
+Started POST "/users/new" for 127.0.0.1 at 2017-08-27 04:06:17 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by UsersController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"R1gV4x+YzwQBtuLhO2D7vMVT9IvP9kj/j8QAeC8W1cJcnht31f0qvO5fllLSUmcEghmBwlCit1yoHn5ABrttpA==", "user"=>{"name"=>"Julia Litvinoff Justus", "role"=>"Estagiária", "birth_date"=>"1996-11-18"}, "commit"=>"Cadastrar"}
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (197.0ms)
+  Rendered users/new.html.erb within layouts/application (206.4ms)
+  Rendered layouts/_navbar.html.erb (10.2ms)
+Completed 200 OK in 1663ms (Views: 1615.5ms | ActiveRecord: 5.7ms)
+
+
+Started POST "/users/new" for 127.0.0.1 at 2017-08-27 04:06:42 -0300
+Processing by UsersController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"vU7jbmEvYH3foji9LWlJX78Cy0ITpdFBjda+I8d45JSmiO36q0qFxTBLTA7EW9Xn+Ei+C4zxLuKqDMAb7tVc8g==", "user"=>{"name"=>"Julia Litvinoff Justus", "photo"=>#<ActionDispatch::Http::UploadedFile:0x007fc828d7c6c8 @tempfile=#<Tempfile:/tmp/RackMultipart20170827-30614-1etwhpq.jpg>, @original_filename="oi meu bb.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"user[photo]\"; filename=\"oi meu bb.jpg\"\r\nContent-Type: image/jpeg\r\n">, "role"=>"Estagiária", "birth_date"=>"1996-11-18"}, "commit"=>"Cadastrar"}
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (6.3ms)
+  Rendered users/new.html.erb within layouts/application (8.0ms)
+  Rendered layouts/_navbar.html.erb (4.0ms)
+Completed 200 OK in 97ms (Views: 94.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/new" for 127.0.0.1 at 2017-08-27 04:07:56 -0300
+  
+ActionController::RoutingError (No route matches [POST] "/users/new"):
+  
+actionpack (5.0.5) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.5) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.5) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.5) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.5) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.5) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.5) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.5) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.0.5) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.5) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.5) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.5) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.5) lib/rails/engine.rb:522:in `call'
+puma (3.10.0) lib/puma/configuration.rb:225:in `call'
+puma (3.10.0) lib/puma/server.rb:605:in `handle_request'
+puma (3.10.0) lib/puma/server.rb:437:in `process_client'
+puma (3.10.0) lib/puma/server.rb:301:in `block in run'
+puma (3.10.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+  Rendering /home/julia/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.5/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendering /home/julia/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/julia/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.6ms)
+  Rendered collection of /home/julia/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.5/lib/action_dispatch/middleware/templates/routes/_route.html.erb [48 times] (18.4ms)
+  Rendered /home/julia/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.5/lib/action_dispatch/middleware/templates/routes/_table.html.erb (2.4ms)
+  Rendering /home/julia/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/julia/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.9ms)
+  Rendered /home/julia/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.5/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (55.7ms)
+Started GET "/users/new" for 127.0.0.1 at 2017-08-27 04:08:01 -0300
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (4.3ms)
+  Rendered users/new.html.erb within layouts/application (5.7ms)
+  Rendered layouts/_navbar.html.erb (3.4ms)
+Completed 200 OK in 79ms (Views: 56.4ms | ActiveRecord: 4.8ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2017-08-27 04:09:01 -0300
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (4.7ms)
+  Rendered users/new.html.erb within layouts/application (6.4ms)
+  Rendered layouts/_navbar.html.erb (3.4ms)
+Completed 200 OK in 58ms (Views: 56.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2017-08-27 04:09:05 -0300
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"XRl5ucYwCBLzd5B8eLSyW4UJzcic9fFNFkkxhFxlMNRG33ctDFXtqhye5M+Rhi7jwkO4gQOhDu4xk0+8dciIsg==", "user"=>{"name"=>"", "role"=>"", "birth_date"=>""}, "commit"=>"Cadastrar"}
+Unpermitted parameters: name, role, birth_date
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.6ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (125.9ms)
+  Rendered layouts/_navbar.html.erb (2.8ms)
+Completed 200 OK in 230ms (Views: 217.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2017-08-27 04:09:48 -0300
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (3.2ms)
+  Rendered users/new.html.erb within layouts/application (4.6ms)
+  Rendered layouts/_navbar.html.erb (2.4ms)
+Completed 200 OK in 64ms (Views: 61.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2017-08-27 04:10:08 -0300
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"gNmqQK7BxNRGblIC1UvaTPj5ZXIHh2ACut8y/bo4P96bH6TUZKQhbKmHJrE8eUb0v7MQO5jTn6GdBUzFk5WHuA==", "user"=>{"name"=>"Julia Litvinoff Justus", "photo"=>#<ActionDispatch::Http::UploadedFile:0x007fc82435a6d0 @tempfile=#<Tempfile:/tmp/RackMultipart20170827-30614-1nxho80.jpg>, @original_filename="oi meu bb.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"user[photo]\"; filename=\"oi meu bb.jpg\"\r\nContent-Type: image/jpeg\r\n">, "role"=>"Estagiária", "birth_date"=>"1996-11-18"}, "commit"=>"Cadastrar"}
+Unpermitted parameters: name, photo, role, birth_date
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.1ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (8.7ms)
+  Rendered layouts/_navbar.html.erb (2.3ms)
+Completed 200 OK in 68ms (Views: 59.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2017-08-27 04:12:36 -0300
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (5.3ms)
+  Rendered users/new.html.erb within layouts/application (6.6ms)
+  Rendered layouts/_navbar.html.erb (2.2ms)
+Completed 200 OK in 57ms (Views: 55.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2017-08-27 04:14:00 -0300
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (2.5ms)
+  Rendered users/new.html.erb within layouts/application (3.8ms)
+  Rendered layouts/_navbar.html.erb (2.5ms)
+Completed 200 OK in 62ms (Views: 60.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2017-08-27 04:14:27 -0300
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"s1ez08zN17BkreQdmBHr8KXctgOzc7Xc4Il1XvHmERuokb1HBqgyCItEkK5xI3dI4pbDSiwnSn/HUwtm2EupfQ==", "user"=>{"name"=>"Julia Litvinoff Justus", "email"=>"julialiff@hotmail.com", "role"=>"Estagiária", "birth_date"=>"1996-11-18", "photo"=>#<ActionDispatch::Http::UploadedFile:0x007fc82a94a5d0 @tempfile=#<Tempfile:/tmp/RackMultipart20170827-30614-tm9upv.jpg>, @original_filename="oi meu bb.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"user[photo]\"; filename=\"oi meu bb.jpg\"\r\nContent-Type: image/jpeg\r\n">, "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Cadastrar"}
+Unpermitted parameters: name, role, birth_date, photo
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (1.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "julialiff@hotmail.com"], ["LIMIT", 1]]
+  [1m[35mSQL (74.6ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at", "email", "encrypted_password") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["created_at", "2017-08-27 07:14:28.433706"], ["updated_at", "2017-08-27 07:14:28.433706"], ["email", "julialiff@hotmail.com"], ["encrypted_password", "$2a$11$z4mOqfDqMSO8vcjwNn9BvOjR3c4JRKXX3ymcKgB9MzNWd4016ua/."]]
+  [1m[35m (46.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = $1, "sign_in_count" = $2, "current_sign_in_at" = $3, "last_sign_in_at" = $4, "current_sign_in_ip" = $5, "last_sign_in_ip" = $6 WHERE "users"."id" = $7[0m  [["updated_at", "2017-08-27 07:14:28.557966"], ["sign_in_count", 1], ["current_sign_in_at", "2017-08-27 07:14:28.556997"], ["last_sign_in_at", "2017-08-27 07:14:28.556997"], ["current_sign_in_ip", "127.0.0.1"], ["last_sign_in_ip", "127.0.0.1"], ["id", 1]]
+  [1m[35m (5.6ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 616ms (ActiveRecord: 128.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-27 04:14:28 -0300
+Processing by StaticPagesController#index as HTML
+  Rendering static_pages/index.html.erb within layouts/application
+  Rendered static_pages/index.html.erb within layouts/application (0.8ms)
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_navbar.html.erb (4.8ms)
+Completed 200 OK in 53ms (Views: 51.1ms | ActiveRecord: 0.8ms)
+
+

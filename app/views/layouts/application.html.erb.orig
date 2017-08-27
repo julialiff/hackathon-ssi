@@ -3,7 +3,7 @@
   <head>
     <title>HackathonSsi</title>
  // Start
-    
+
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -11,17 +11,12 @@
   </head>
 
   <body>
-<<<<<<< 334061ea24cd639e8d944101d5cc38ddb99e64d3
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p
-    <%= yield %>
-=======
-  <%= render 'layouts/navbar' %>
-    <div class="content">
-      <%if notice %><div class="alert alert-success"><%= notice %></div><% end %>
-      <% if alert %><div class="alert alert-danger"><%= alert %></div><% end %>
-      <%= yield %>
+    <div class="container">
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p
+        <%if notice %><div class="alert alert-success"><%= notice %></div><% end %>
+        <% if alert %><div class="alert alert-danger"><%= alert %></div><% end %>
+        <%= yield %>
     </div>
->>>>>>> layout
   </body>
 </html>
