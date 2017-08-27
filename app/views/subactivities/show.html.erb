@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Activity:</strong>
+  <%= @subactivity.activity %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @subactivity.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @subactivity.description %>
+</p>
+
+<p>
+  <strong>Image:</strong>
+  <%= @subactivity.image %>
+</p>
+
+<p>
+  <strong>Done:</strong>
+  <%= @subactivity.done %>
+</p>
+
+<%= link_to 'Edit', edit_subactivity_path(@subactivity) %> |
+<%= link_to 'Back', subactivities_path %>
