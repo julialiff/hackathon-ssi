@@ -7,7 +7,6 @@
           <%= f.label :email, 'E-mail' %><br />
           <%= f.email_field :email, autofocus: true, class: 'form-control' %>
         </div>
-
           <div class="field">
             <%= f.label :password, 'Senha' %><br />
             <%= f.password_field :password, autocomplete: "off", class: 'form-control' %>
@@ -20,13 +19,7 @@
             </div>
           <% end -%>
 
-<<<<<<< HEAD
-  <% if devise_mapping.rememberable? -%>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
-    </div>
-  <% end -%>
+
   
   <% if user_signed_in? %>
 
@@ -39,12 +32,11 @@
      <%end%>
      
    <%end%>
-=======
+
           <div class="actions" style="width:100px;">
             <%= f.submit "Log in!", class: 'btn btn-primary' %>
           </div>
       <% end %>
->>>>>>> d268622e29d2bb20f356fd85e891f76f5095eb4e
 
     <%= render "devise/shared/links" %>
     </div>

@@ -1,5 +1,4 @@
 <p id="notice"><%= notice %></p>
-
 <table>
   <thead>
     <tr>
@@ -20,13 +19,14 @@
         <td><%= activity.title %></td>
         <td><%= activity.description %></td>
         <td><%= activity.done %></td>
-        <td><%= link_to 'Show', activity %></td>
-        <td><%= link_to 'Edit', edit_activity_path(activity) %></td>
-        <td><%= link_to 'Destroy', activity, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show',  subactivities_path(activity) %></td>
+        <td><%#= link_to 'Edit', edit_activity_path(activity) %></td>
+        <td><%#= link_to 'Destroy', activity, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
+
 <br>
 
 <%= link_to 'New Activity', new_activity_path %>

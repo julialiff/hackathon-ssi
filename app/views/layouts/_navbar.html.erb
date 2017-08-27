@@ -1,14 +1,25 @@
+
   <nav class="navbar navbar-default">
+    
     <div class="container-fluid">
+      
       <!-- Brand and toggle get grouped for better mobile display -->
       <div class="navbar-header">
+        
         <a class="navbar-brand" href="#" style="padding-top:0px;padding-bottom: 0px;">
+          
         <div class="row">
+          
           <div class="col col-md-5">
+            
             <%= image_tag("logo.png", :alt => "AcEasy", height: '50') %>
+            
           </div>
+          
           <div class="col col-md-7" style="padding-top:15px">
+            
             AcEasy
+            
           </div>
         </div>
         </a>
@@ -18,17 +29,16 @@
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
                     <li class="page-scroll">
-                        
-                        
-          
+                      
         </ul>
+        
         <ul class="nav navbar-nav navbar-right">
           
           <% if user_signed_in? %>
           
            <% if current_user.admin %>
              
-            <li ><%= link_to 'Cadastrar Usuário',  new_user_path %></li>
+            <li ><%= link_to 'Cadastrar Usuário',   new_user_path  %></li>
             
             <li><%= link_to 'Cadastrar Atividade',  new_activity_path %></li>
             
@@ -36,26 +46,31 @@
             
             <li><%= link_to 'Buscar Atividade',   activities_path %> </li> 
             
+            <li><%= link_to 'Notificações',   notifications_path %> </li> 
+            
             <% else %>
             
             <li><%= link_to 'Minhas atividades',   activities_path %> </li> 
             
-            <li><%= link_to 'Pedir Ajuda',   activities_path %> </li> 
+            <li> <%= link_to 'Pedir Ajuda', Notification.create(created_user_id:current_user.id, assigned_user_id: User.find(current_user.id).superuser, read:false) %> </li> 
             
             <% end %>
             
-            <li><%= link_to "Sair", destroy_user_session_path, method: :delete %></li> 
+            <li> <%= link_to "Sair", destroy_user_session_path, method: :delete %> </li> 
             
             <% else %>
             
-            <li><%= link_to "Entrar", new_user_session_path %></li> 
-            
+           <li> <%= link_to "Entrar", new_user_session_path %> </li> 
             
           <% end %>
           
           </li>
+          
         </ul>
-      </div><!-- /.navbar-collapse -->
-    </div><!-- /.container-fluid -->
+        
+      </div>
+      
+    </div>
+    
   </nav>
-
+  
