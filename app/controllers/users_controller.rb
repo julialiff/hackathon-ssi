@@ -23,11 +23,11 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     # cria o caminho físico do arquivo
-    path = File.join(Rails.root, "public/images", params[:user_params][:photo].original_filename)
+    #path = File.join(Rails.root, "public/images", params[:user_params][:photo].original_filename)
     # escreve o arquivo no local designado
-    File.open(path, 'wb') do |f|
-      f.write(params[:user][:avatar].read)
-    end
+    #File.open(path, 'wb') do |f|
+#      f.write(params[:user][:avatar].read)
+    
 
     @user = User.new(user_params)
 
