@@ -3,13 +3,9 @@
 one:
   created_user_id: 1
   assigned_user_id: 1
-  title: MyString
-  description: MyString
-  done: false
+  read: false
 
 two:
   created_user_id: 1
   assigned_user_id: 1
-  title: MyString
-  description: MyString
-  done: false
+  read: false

@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Created user:</strong>
+  <%= @notification.created_user_id %>
+</p>
+
+<p>
+  <strong>Assigned user:</strong>
+  <%= @notification.assigned_user_id %>
+</p>
+
+<p>
+  <strong>Read:</strong>
+  <%= @notification.read %>
+</p>
+
+<%= link_to 'Edit', edit_notification_path(@notification) %> |
+<%= link_to 'Back', notifications_path %>

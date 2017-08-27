@@ -1,7 +1,8 @@
 class CreateActivities < ActiveRecord::Migration[5.0]
   def change
     create_table :activities do |t|
-      t.references :users, foreign_key: true
+      t.integer :created_user_id
+      t.integer :assigned_user_id
       t.string :title
       t.string :description
       t.boolean :done
