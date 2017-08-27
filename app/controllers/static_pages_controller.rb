@@ -1,5 +1,5 @@
 class StaticPagesController < ApplicationController
   def index
-    'a'
+    @activities = Activity.all.where(assigned_user_id: current_user[:id])
   end
 end

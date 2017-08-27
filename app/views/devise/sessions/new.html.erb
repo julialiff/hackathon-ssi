@@ -2,11 +2,11 @@
   <div class="row">
     <div class="col-md-6 col-md-offset-3">
       <h2>Log in</h2>
-      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-        <div class="field">
-          <%= f.label :email, 'E-mail' %><br />
-          <%= f.email_field :email, autofocus: true, class: 'form-control' %>
-        </div>
+        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+          <div class="field">
+            <%= f.label :email, 'E-mail' %><br />
+            <%= f.email_field :email, autofocus: true, class: 'form-control' %>
+          </div>
           <div class="field">
             <%= f.label :password, 'Senha' %><br />
             <%= f.password_field :password, autocomplete: "off", class: 'form-control' %>
@@ -18,44 +18,19 @@
               <%= f.label :remember_me, 'Lembrar de mim' %>
             </div>
           <% end %>
-
-<<<<<<< HEAD
-
-  
-  <% if user_signed_in? %>
-
-     <% if current_user.admin %>
-     <div class="field">
-      <%= f.check_box :admin %>
-      <%= f.label :admin %>
-    </div>
-     
-     <%end%>
-     
-   <%end%>
-
+          <% if user_signed_in? %>
+            <% if current_user.admin %>
+              <div class="field">
+                <%= f.check_box :admin %>
+                <%= f.label :admin %>
+              </div>
+            <% end %>
+          <%end%>
           <div class="actions" style="width:100px;">
             <%= f.submit "Log in!", class: 'btn btn-primary' %>
           </div>
-      <% end %>
-=======
-        <% if user_signed_in? %>
-
-           <% if current_user.admin %>
-           <div class="field">
-            <%= f.check_box :admin %>
-            <%= f.label :admin %>
-          </div>
-     <%end%>
-
-    <%end%>
-      <div class="actions" style="width:100px;">
-        <%= f.submit "Log in!", class: 'btn btn-primary' %>
-      </div>
-  <% end %>
->>>>>>> eb73ce4a01ce04b6ec2880475f9e984481e21d3a
-
-    <%= render "devise/shared/links" %>
+        <% end %>
+        <%= render "devise/shared/links" %>
     </div>
   </div>
 </div>

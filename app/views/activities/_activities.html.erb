@@ -1,0 +1,65 @@
+<% if user_signed_in? %>
+  <% if current_user.admin? %>
+    <p id="notice"><%= notice %></p>
+    <div class='row'>
+      <div class='col col-md-3'>
+        <b>Título</b>
+      </div>
+      <div class='col col-md-3'>
+        <b>Descrição</b>
+      </div>
+      <div class='col col-md-3'>
+        <b>Feito?</b>
+      </div>
+      <div class='col col-md-3'>
+        <b>Funcionário responsável por cumprir a atividade</b>
+      </div>
+    </div>
+    <% @activities.each do |activity| %>
+    <div class='row'>
+      <div class='col col-md-3'>
+        <b>Título</b>
+      </div>
+      <div class='col col-md-3'>
+        <b>Descrição</b>
+      </div>
+      <div class='col col-md-3'>
+        <b>Feito?</b>
+      </div>
+      <div class='col col-md-3'>
+        <%= activity.assigned_user_id %>
+      </div>
+    </div>
+  <% end %>
+    <%= link_to 'Nova atividade', new_activity_path %>
+  <% else %>
+    <p id="notice"><%= notice %></p>
+    <div class='row'>
+      <div class='col col-md-4'>
+        <b>Título</b>
+      </div>
+      <div class='col col-md-4'>
+        <b>Descrição</b>
+      </div>
+      <div class='col col-md-4'>
+        <b>Feito?</b>
+      </div>
+    </div>
+    <% @activities.each do |activity| %>
+      <div class='row'>
+        <div class='col col-md-4'>
+          activity.title
+        </div>
+        <div class='col col-md-4'>
+          activity.description
+        </div>
+        <div class='col col-md-4'>
+          activity.done
+        </div>
+      </div>
+    <% end %>
+
+  <% end %>
+<% else %>
+  <% redirect_to new_user_session_path %>
+<% end %>

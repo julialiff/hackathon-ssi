@@ -1,0 +1,10 @@
+<% if user_signed_in? %>
+  <%= render 'activities/activities' %>
+<% else %>
+  <%= image_tag("topo3.png", :alt => "AcEasy", width: '100%') %>
+  <div class='row'>
+    <div class="col-md-6 col-md-offset-5">
+    <%= link_to 'Login',  new_user_session_path, class: 'btn btn-primary', style: 'color:#FFF;', width: '150px;' %>
+    </div>
+  </div>
+<% end %>

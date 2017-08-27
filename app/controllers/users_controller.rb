@@ -23,7 +23,6 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     # cria o caminho físico do arquivo
-    byebug
     path = File.join(Rails.root, "public/images", params[:user_params][:photo].original_filename)
     # escreve o arquivo no local designado
     File.open(path, 'wb') do |f|
