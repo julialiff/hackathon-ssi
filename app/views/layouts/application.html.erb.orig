@@ -1,21 +1,22 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>AcEasy</title>
+    <title>HackathonSsi</title>
+ // Start
+
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    
   </head>
 
   <body>
-  <%= render 'layouts/navbar' %>
     <div class="container">
-      <%if notice %><div class="alert alert-success"><%= notice %></div><% end %>
-      <% if alert %><div class="alert alert-danger"><%= alert %></div><% end %>
-      <%= yield %>
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p
+        <%if notice %><div class="alert alert-success"><%= notice %></div><% end %>
+        <% if alert %><div class="alert alert-danger"><%= alert %></div><% end %>
+        <%= yield %>
     </div>
   </body>
-  <%= javascript_include_tag :application %>
 </html>
