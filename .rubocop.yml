@@ -1,0 +1,56 @@
+# rubocop --auto-gen --exclude-limit 25000
+
+# When using '--auto-gen', use the command above. It avoids considering
+# disabling rubocop for common errors.
+
+inherit_from: .rubocop_todo.yml
+
+AllCops:
+  TargetRubyVersion: 2.4.1
+  DisplayCopNames: true
+  Exclude:
+    - 'db/migrate/*'
+    - 'db/schema.rb'
+    - 'vendor/**/*'
+    - 'snippets/**/*'
+    - 'config/environments/development.rb'
+    - 'config/initializers/devise.rb'
+
+Rails:
+  Enabled: true
+
+Style/AsciiComments:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+Style/PerlBackrefs:
+  Enabled: false
+
+Bundler/OrderedGems:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+CyclomaticComplexity:
+  Enabled: false
+
+ClassAndModuleChildren:
+  Enabled: false
+
+Metrics/ClassLength:
+  Enabled: false
+
+Metrics/AbcSize:
+  Max: 30
+
+Metrics/MethodLength:
+  Max: 20
+
+Metrics/BlockLength:
+  Max: 30
+
+Metrics/LineLength:
+  Max: 150
