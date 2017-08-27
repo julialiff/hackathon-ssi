@@ -49,5 +49,12 @@
   <div class="actions">
     <%= f.submit "Cadastrar", class: 'btn btn-primary' %>
   </div>
+<<<<<<< HEAD
 <% end %>
+=======
+
+
+
 <% end %>
+
+>>>>>>> 32353cdd7c318f73e133d16a38b668c31ebbca38
