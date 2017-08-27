@@ -1,11 +1,10 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Activities</h1>
-
 <table>
   <thead>
     <tr>
-      <th>Users</th>
+      <th>Created user</th>
+      <th>Assigned user</th>
       <th>Title</th>
       <th>Description</th>
       <th>Done</th>
@@ -16,7 +15,8 @@
   <tbody>
     <% @activities.each do |activity| %>
       <tr>
-        <td><%= activity.users %></td>
+        <td><%= activity.created_user_id %></td>
+        <td><%= activity.assigned_user_id %></td>
         <td><%= activity.title %></td>
         <td><%= activity.description %></td>
         <td><%= activity.done %></td>
@@ -27,7 +27,6 @@
     <% end %>
   </tbody>
 </table>
-
 <br>
 
 <%= link_to 'New Activity', new_activity_path %>

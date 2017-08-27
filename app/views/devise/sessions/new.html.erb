@@ -17,6 +17,18 @@
       <%= f.label :remember_me %>
     </div>
   <% end -%>
+  
+  <% if user_signed_in? %>
+
+     <% if current_user.admin %>
+     <div class="field">
+      <%= f.check_box :admin %>
+      <%= f.label :admin %>
+    </div>
+     
+     <%end%>
+     
+   <%end%>
 
   <div class="actions">
     <%= f.submit "Log in" %>
