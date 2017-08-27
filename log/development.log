@@ -8509,3 +8509,232 @@ Completed 200 OK in 53ms (Views: 51.1ms | ActiveRecord: 0.8ms)
 >>>>>>> eb73ce4a01ce04b6ec2880475f9e984481e21d3a
 
 
+Started GET "/" for 138.219.88.55 at 2017-08-27 12:57:17 +0000
+Cannot render console from 138.219.88.55! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by StaticPagesController#index as HTML
+  Rendering static_pages/index.html.erb within layouts/application
+  Rendered static_pages/index.html.erb within layouts/application (1.6ms)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_navbar.html.erb (43.7ms)
+Completed 200 OK in 422ms (Views: 408.4ms | ActiveRecord: 4.0ms)
+
+
+Started DELETE "/users/sign_out" for 138.219.88.55 at 2017-08-27 12:57:25 +0000
+Cannot render console from 138.219.88.55! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"FOaKHxoD5VYA2nJeJ/iafL01rIJx0gPug0nLDU7cImflLnmyrSRMY9KGSLEzjPuNtUp2VpmbSB9Gyo8+uYk7HA=="}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://aceasy-migvasc.c9users.io/
+Completed 302 Found in 15ms (ActiveRecord: 1.4ms)
+
+
+Started DELETE "/users/sign_out" for 138.219.88.55 at 2017-08-27 12:57:25 +0000
+Cannot render console from 138.219.88.55! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"FOaKHxoD5VYA2nJeJ/iafL01rIJx0gPug0nLDU7cImflLnmyrSRMY9KGSLEzjPuNtUp2VpmbSB9Gyo8+uYk7HA=="}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://aceasy-migvasc.c9users.io/
+Completed 302 Found in 6ms (ActiveRecord: 1.4ms)
+
+
+Started GET "/" for 138.219.88.55 at 2017-08-27 12:57:26 +0000
+Cannot render console from 138.219.88.55! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by StaticPagesController#index as HTML
+  Rendering static_pages/index.html.erb within layouts/application
+  Rendered static_pages/index.html.erb within layouts/application (0.4ms)
+  Rendered layouts/_navbar.html.erb (5.1ms)
+Completed 200 OK in 48ms (Views: 47.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 138.219.88.55 at 2017-08-27 12:57:31 +0000
+Cannot render console from 138.219.88.55! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/sessions/new.html.erb within layouts/application (1.2ms)
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/home/ubuntu/workspace/app/views/devise/sessions/new.html.erb:62: syntax error, unexpected keyword_ensure, expecting end-of-input):
+  
+app/views/devise/sessions/new.html.erb:62: syntax error, unexpected keyword_ensure, expecting end-of-input
+  Rendering /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-5.0.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-5.0.5/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-5.0.5/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (4.4ms)
+  Rendering /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-5.0.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-5.0.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.6ms)
+  Rendering /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-5.0.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-5.0.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-5.0.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (28.6ms)
+Started GET "/users/sign_in" for 138.219.88.55 at 2017-08-27 12:57:44 +0000
+Cannot render console from 138.219.88.55! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/sessions/new.html.erb within layouts/application (2.1ms)
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/home/ubuntu/workspace/app/views/devise/sessions/new.html.erb:62: syntax error, unexpected keyword_ensure, expecting end-of-input):
+  
+app/views/devise/sessions/new.html.erb:62: syntax error, unexpected keyword_ensure, expecting end-of-input
+  Rendering /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-5.0.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-5.0.5/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-5.0.5/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (4.0ms)
+  Rendering /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-5.0.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-5.0.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.9ms)
+  Rendering /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-5.0.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-5.0.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-5.0.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (28.8ms)
+Started GET "/users/sign_in" for 138.219.88.55 at 2017-08-27 12:58:43 +0000
+Cannot render console from 138.219.88.55! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/sessions/new.html.erb within layouts/application (1.5ms)
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/home/ubuntu/workspace/app/views/devise/sessions/new.html.erb:62: syntax error, unexpected keyword_ensure, expecting end-of-input):
+  
+app/views/devise/sessions/new.html.erb:62: syntax error, unexpected keyword_ensure, expecting end-of-input
+  Rendering /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-5.0.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-5.0.5/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-5.0.5/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (4.0ms)
+  Rendering /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-5.0.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-5.0.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.9ms)
+  Rendering /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-5.0.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-5.0.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.4/gems/actionpack-5.0.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (28.4ms)
+Started GET "/users/sign_in" for 138.219.88.55 at 2017-08-27 12:59:12 +0000
+Cannot render console from 138.219.88.55! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.1ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (17.7ms)
+  Rendered layouts/_navbar.html.erb (2.2ms)
+Completed 200 OK in 61ms (Views: 59.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 138.219.88.55 at 2017-08-27 12:59:19 +0000
+Cannot render console from 138.219.88.55! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Xn7B4USlEviZGkEEXCUOCo9Z4ASrxnrk/mCaRkXmEZcBGvRKcaJE9hA+7FvPPkv8OZe2O5Emc3AyQNfHQapZXg==", "user"=>{"email"=>"teste@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in!"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "teste@gmail.com"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = $1, "last_sign_in_at" = $2, "sign_in_count" = $3, "updated_at" = $4 WHERE "users"."id" = $5[0m  [["current_sign_in_at", "2017-08-27 12:59:19.592864"], ["last_sign_in_at", "2017-08-27 11:39:46.841855"], ["sign_in_count", 29], ["updated_at", "2017-08-27 12:59:19.594340"], ["id", 2]]
+  [1m[35m (5.6ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://aceasy-migvasc.c9users.io/
+Completed 302 Found in 160ms (ActiveRecord: 7.2ms)
+
+
+Started GET "/" for 138.219.88.55 at 2017-08-27 12:59:19 +0000
+Cannot render console from 138.219.88.55! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by StaticPagesController#index as HTML
+  Rendering static_pages/index.html.erb within layouts/application
+  Rendered static_pages/index.html.erb within layouts/application (0.3ms)
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "notifications" ("created_user_id", "assigned_user_id", "read", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_user_id", 2], ["assigned_user_id", 1], ["read", "f"], ["created_at", "2017-08-27 12:59:19.906765"], ["updated_at", "2017-08-27 12:59:19.906765"]]
+  [1m[35m (3.8ms)[0m  [1m[35mCOMMIT[0m
+  Rendered layouts/_navbar.html.erb (25.4ms)
+Completed 200 OK in 71ms (Views: 59.9ms | ActiveRecord: 9.8ms)
+
+
+Started GET "/notifications/155" for 138.219.88.55 at 2017-08-27 12:59:24 +0000
+Cannot render console from 138.219.88.55! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by NotificationsController#show as HTML
+  Parameters: {"id"=>"155"}
+  [1m[36mNotification Load (0.4ms)[0m  [1m[34mSELECT  "notifications".* FROM "notifications" WHERE "notifications"."id" = $1 LIMIT $2[0m  [["id", 155], ["LIMIT", 1]]
+  Rendering notifications/show.html.erb within layouts/application
+  Rendered notifications/show.html.erb within layouts/application (0.9ms)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (6.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "notifications" ("created_user_id", "assigned_user_id", "read", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_user_id", 2], ["assigned_user_id", 1], ["read", "f"], ["created_at", "2017-08-27 12:59:24.264934"], ["updated_at", "2017-08-27 12:59:24.264934"]]
+  [1m[35m (2.6ms)[0m  [1m[35mCOMMIT[0m
+  Rendered layouts/_navbar.html.erb (78.6ms)
+Completed 200 OK in 119ms (Views: 104.4ms | ActiveRecord: 11.4ms)
+
+
+Started GET "/notifications" for 138.219.88.55 at 2017-08-27 12:59:27 +0000
+Cannot render console from 138.219.88.55! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by NotificationsController#index as HTML
+  Rendering notifications/index.html.erb within layouts/application
+  [1m[36mNotification Load (0.9ms)[0m  [1m[34mSELECT "notifications".* FROM "notifications"[0m
+  Rendered notifications/index.html.erb within layouts/application (27.3ms)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "notifications" ("created_user_id", "assigned_user_id", "read", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_user_id", 2], ["assigned_user_id", 1], ["read", "f"], ["created_at", "2017-08-27 12:59:27.809753"], ["updated_at", "2017-08-27 12:59:27.809753"]]
+  [1m[35m (2.6ms)[0m  [1m[35mCOMMIT[0m
+  Rendered layouts/_navbar.html.erb (10.3ms)
+Completed 200 OK in 77ms (Views: 70.8ms | ActiveRecord: 5.1ms)
+
+
+Started GET "/" for 138.219.88.55 at 2017-08-27 12:59:57 +0000
+Cannot render console from 138.219.88.55! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by StaticPagesController#index as HTML
+  Rendering static_pages/index.html.erb within layouts/application
+  Rendered static_pages/index.html.erb within layouts/application (0.4ms)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (11.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "notifications" ("created_user_id", "assigned_user_id", "read", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_user_id", 2], ["assigned_user_id", 1], ["read", "f"], ["created_at", "2017-08-27 12:59:57.056780"], ["updated_at", "2017-08-27 12:59:57.056780"]]
+  [1m[35m (3.1ms)[0m  [1m[35mCOMMIT[0m
+  Rendered layouts/_navbar.html.erb (22.3ms)
+Completed 200 OK in 61ms (Views: 44.0ms | ActiveRecord: 16.3ms)
+
+
+Started GET "/notifications/158" for 138.219.88.55 at 2017-08-27 13:00:01 +0000
+Cannot render console from 138.219.88.55! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by NotificationsController#show as HTML
+  Parameters: {"id"=>"158"}
+  [1m[36mNotification Load (0.4ms)[0m  [1m[34mSELECT  "notifications".* FROM "notifications" WHERE "notifications"."id" = $1 LIMIT $2[0m  [["id", 158], ["LIMIT", 1]]
+  Rendering notifications/show.html.erb within layouts/application
+  Rendered notifications/show.html.erb within layouts/application (0.9ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "notifications" ("created_user_id", "assigned_user_id", "read", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_user_id", 2], ["assigned_user_id", 1], ["read", "f"], ["created_at", "2017-08-27 13:00:01.087876"], ["updated_at", "2017-08-27 13:00:01.087876"]]
+  [1m[35m (2.5ms)[0m  [1m[35mCOMMIT[0m
+  Rendered layouts/_navbar.html.erb (9.7ms)
+Completed 200 OK in 49ms (Views: 42.9ms | ActiveRecord: 4.2ms)
+
+
+Started GET "/notifications" for 138.219.88.55 at 2017-08-27 13:00:04 +0000
+Cannot render console from 138.219.88.55! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by NotificationsController#index as HTML
+  Rendering notifications/index.html.erb within layouts/application
+  [1m[36mNotification Load (0.4ms)[0m  [1m[34mSELECT "notifications".* FROM "notifications"[0m
+  Rendered notifications/index.html.erb within layouts/application (2.5ms)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (6.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "notifications" ("created_user_id", "assigned_user_id", "read", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_user_id", 2], ["assigned_user_id", 1], ["read", "f"], ["created_at", "2017-08-27 13:00:04.657695"], ["updated_at", "2017-08-27 13:00:04.657695"]]
+  [1m[35m (2.6ms)[0m  [1m[35mCOMMIT[0m
+  Rendered layouts/_navbar.html.erb (16.1ms)
+Completed 200 OK in 57ms (Views: 45.5ms | ActiveRecord: 10.5ms)
+
+
+Started GET "/activities" for 138.219.88.55 at 2017-08-27 13:00:07 +0000
+Cannot render console from 138.219.88.55! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ActivitiesController#index as HTML
+  Rendering activities/index.html.erb within layouts/application
+  [1m[36mActivity Load (0.6ms)[0m  [1m[34mSELECT "activities".* FROM "activities"[0m
+  Rendered activities/index.html.erb within layouts/application (10.7ms)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "notifications" ("created_user_id", "assigned_user_id", "read", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_user_id", 2], ["assigned_user_id", 1], ["read", "f"], ["created_at", "2017-08-27 13:00:08.060547"], ["updated_at", "2017-08-27 13:00:08.060547"]]
+  [1m[35m (2.5ms)[0m  [1m[35mCOMMIT[0m
+  Rendered layouts/_navbar.html.erb (82.2ms)
+Completed 200 OK in 136ms (Views: 123.2ms | ActiveRecord: 6.5ms)
+
+

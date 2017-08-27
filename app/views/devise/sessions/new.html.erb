@@ -19,7 +19,6 @@
             </div>
           <% end %>
 
-<<<<<<< HEAD
 
   
   <% if user_signed_in? %>
@@ -38,24 +37,7 @@
             <%= f.submit "Log in!", class: 'btn btn-primary' %>
           </div>
       <% end %>
-=======
-        <% if user_signed_in? %>
-
-           <% if current_user.admin %>
-           <div class="field">
-            <%= f.check_box :admin %>
-            <%= f.label :admin %>
-          </div>
-     <%end%>
-
-    <%end%>
-      <div class="actions" style="width:100px;">
-        <%= f.submit "Log in!", class: 'btn btn-primary' %>
-      </div>
-  <% end %>
->>>>>>> eb73ce4a01ce04b6ec2880475f9e984481e21d3a
 
     <%= render "devise/shared/links" %>
     </div>
   </div>
-</div>
